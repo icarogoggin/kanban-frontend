@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './global.scss'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from './components/shared/Header'
+import Footer from './components/shared/Footer'
 import App from './App'
-import Nav from './components/Nav'
+import Nav from './components/shared/Nav'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
