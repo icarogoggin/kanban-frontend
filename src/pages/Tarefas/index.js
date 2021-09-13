@@ -1,18 +1,13 @@
 import React from 'react'
+import TaskList from '../../components/structure/TaskList/TaskList'
 
-const Main = () => {
+function Main() {
     return (
-        <form>
-            <input
-                type="text"
-                placeholder="Enter a Todo..."
-                className="task-input"
-            />
-            <button className="button-add" type="submit">
-                Add
-            </button>
-        </form>
+        <div>
+            <TaskList />
+        </div>
     )
 }
 
 export default Main
+
