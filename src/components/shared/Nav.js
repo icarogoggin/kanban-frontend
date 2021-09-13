@@ -6,23 +6,13 @@ export default function Nav() {
         <nav class="admin__nav">
             <ul class="menu">
                 <li class="menu__item">
-                    <a class="menu__link" href="/dashboard">
-                        Dashboard
-                    </a>
-                </li>
-                <li class="menu__item">
                     <a class="menu__link" href="/tarefas">
-                        Tarefas
+                        Lista de Tarefas
                     </a>
                 </li>
                 <li class="menu__item">
-                    <a class="menu__link" href="/campanhas">
-                        Campanhas
-                    </a>
-                </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/despesas">
-                        Despesas
+                    <a class="menu__link" href="/usuarios">
+                        Usuarios
                     </a>
                 </li>
             </ul>
