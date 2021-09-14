@@ -6,6 +6,7 @@ $admin-nav-width: 250px;
 *::before,
 *::after {
     box-sizing: border-box;
+    list-style-type: none;
 }
 
 body {
@@ -57,7 +58,7 @@ body {
         display: flex;
         grid-area: footer;
         flex-basis: 100%;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         height: $admin-footer-height;
         padding: 0 var(--spacing);
@@ -144,7 +145,6 @@ img {
 }
 
 .menu {
-    list-style-type: none;
     padding: 0;
 
     &__item {
@@ -164,32 +164,91 @@ img {
     }
 }
 
-.card {
-    height: 100%;
+.card-container {
+    min-height: 2rem;
     padding: 1rem;
-    font-size: 2rem;
+    margin-top: 2rem;
+    font-size: 1rem;
     font-weight: 300;
     background-color: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    &__box {
+        display: flex;
+        width: 100%;
+        color: black;
+
+        &__title {
+            font-size: 1.5rem;
+        }
+
+        &__description {
+            width: 100%;
+        }
+
+        &__Alta {
+            & span {
+                background-color: red;
+                padding: 0.1rem;
+                border-radius: 5px;
+            }
+        }
+        &__Media {
+            & span {
+                background-color: yellow;
+                padding: 0.1rem;
+                border-radius: 5px;
+            }
+        }
+        &__Baixa {
+            & span {
+                background-color: yellowgreen;
+                padding: 0.1rem;
+                border-radius: 5px;
+            }
+        }
+
+        &__content {
+            min-width: 60vw;
+            display: flex;
+            flex-wrap: wrap;
+            vertical-align: baseline;
+            text-align: baseline;
+
+            & li {
+                display: flex;
+                margin-right: 7rem;
+                padding: 0.2rem;
+            }
+        }
+    }
 }
 
 .btn {
     display: inline-block;
     position: right;
-    border-radius: 5em;
+    border-radius: 4.5em;
     border: 0;
-    padding: 0.5rem 1rem;
+    padding: 1rem 1rem;
     white-space: nowrap;
+    cursor: pointer;
+    transition: 1s;
 
     &--primary {
         color: #fff;
         background-color: #05aaac;
     }
+
+    &:hover,
+    &:focus {
+        color: #fff;
+        background-color: #e1e5f2;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
 }
 
 .ticker {
-    list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
@@ -198,4 +257,93 @@ img {
     &__item {
         margin-right: 1rem;
     }
+}
+
+.form-addtask {
+    max-width: 100%;
+    text-align: center;
+    margin: 3rem;
+    font-family: 'Merriweather', sans-serif;
+
+    .form-input-area {
+        margin: 1rem;
+    }
+
+    input,
+    textarea,
+    select {
+        border: none;
+        border-bottom: 1px solid #76808f;
+        outline: 0;
+        padding: 1rem;
+        border-radius: 8px;
+        display: block;
+        width: 100%;
+    }
+}
+
+.form-edittask {
+    max-width: 100%;
+    text-align: center;
+    margin: 3rem;
+    font-family: 'Merriweather', sans-serif;
+
+    .form-input-edit {
+        margin: 1rem;
+    }
+
+    input,
+    textarea,
+    select {
+        border: none;
+        border-bottom: 1px solid #76808f;
+        outline: 0;
+        padding: 1rem;
+        border-radius: 8px;
+        display: block;
+        width: 100%;
+    }
+}
+
+.viewtask {
+    max-width: 100%;
+    text-align: center;
+    margin: 3rem;
+    font-family: 'Merriweather', sans-serif;
+
+    p {
+        border: none;
+        border-bottom: 1px solid #76808f;
+        outline: 0;
+        padding: 1rem;
+        border-radius: 8px;
+        display: block;
+        width: 100%;
+    }
+}
+
+.submit-btn {
+    margin: 0.2rem;
+    box-shadow: inset 0px 1px 3px 0px #91b8b3;
+    background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+    background-color: #768d87;
+    border-radius: 5px;
+    border: 1px solid #566963;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 11px 23px;
+    text-decoration: none;
+    text-shadow: 0px -1px 0px #2b665e;
+}
+.submit-btn:hover {
+    background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+    background-color: #6c7c7c;
+}
+.submit-btn:active {
+    position: relative;
+    top: 1px;
 }

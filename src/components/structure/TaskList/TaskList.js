@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import TaskCard from '../TaskCard/TaskCard'
+import { Api } from '../../../api/api'
 
 const TaskList = () => {
     const [tasks, setTasks] = useState([])
@@ -8,10 +9,8 @@ const TaskList = () => {
         getList()
     }, [])
 
-    const url = 'https://api-node-icaro.herokuapp.com/tarefas/'
-
     const getList = async () => {
-        const response = await fetch(url)
+        const response = await Api.fetchGet()
         const data = await response.json()
         setTasks(data)
     }

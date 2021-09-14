@@ -3,12 +3,16 @@ import React from 'react'
 export default function Header() {
     return (
         <header className="admin__header">
-            <a href="#" className="logo">
-                <h1>Kanban</h1>
+            <a href="/" className="logo">
+                <h1>B.TASK</h1>
             </a>
             <div className="toolbar">
-                <button className="btn btn--primary">Adicionar Venda</button>
-                <a href="#" className="logout">
+                <a href="/add">
+                    <button className="btn btn--primary">
+                        Adicionar tarefa
+                    </button>
+                </a>
+                <a href="/" className="logout">
                     Log Out
                 </a>
             </div>
