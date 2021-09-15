@@ -1,40 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { Api } from '../../api/api'
+import React, { useEffect, useState } from 'react';
+import { Api } from '../../api/api';
 
 const TaskEdit = (props) => {
-    const id = props.match.params.id
-    const [fields, setFields] = useState({})
+    const id = props.match.params.id;
+    const [fields, setFields] = useState({});
 
     useEffect(() => {
-        getTaskById()
-    }, [])
+        getTaskById();
+    }, []);
 
     const getTaskById = async () => {
-        const response = await Api.fetchGetById(id)
-        const data = await response.json()
-        setFields(data)
-    }
+        const response = await Api.fetchGetById(id);
+        const data = await response.json();
+        setFields(data);
+    };
 
     const handleFieldsChange = (evento) => {
-        const auxFields = { ...fields }
-        auxFields[evento.target.name] = evento.target.value
-        setFields(auxFields)
-    }
+        const auxFields = { ...fields };
+        auxFields[evento.target.name] = evento.target.value;
+        setFields(auxFields);
+    };
 
     const handleSubmit = async (evento) => {
-        evento.preventDefault()
-        const dados = { ...fields }
-        dados.prazo = parseInt(dados.prazo)
+        evento.preventDefault();
+        const dados = { ...fields };
+        dados.prazo = parseInt(dados.prazo);
 
         try {
-            const response = await Api.fetchPut(dados, id)
-            const data = await response
-            alert('Editado com sucesso!')
-            props.history.push('/')
+            const response = await Api.fetchPut(dados, id);
+            const data = await response;
+            alert('Editado com sucesso!');
+            props.history.push('/');
         } catch (error) {
-            console.log('erro', error)
+            console.log('erro', error);
         }
-    }
+    };
 
     return (
         <section>
@@ -113,7 +113,7 @@ const TaskEdit = (props) => {
                 </div>
             </form>
         </section>
-    )
-}
+    );
+};
 
-export default TaskEdit
+export default TaskEdit;

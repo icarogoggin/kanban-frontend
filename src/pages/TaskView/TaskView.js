@@ -1,36 +1,43 @@
-import React, { useEffect, useState } from 'react'
-import { Api } from '../../api/api'
-import { Link } from 'react-router-dom'
-import 'react-responsive-modal/styles.css'
-import { Modal } from 'react-responsive-modal'
+import React, { useEffect, useState } from 'react';
+import { Api } from '../../api/api';
+import { Link } from 'react-router-dom';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 
 const TaskView = (props) => {
-    const [task, setTasks] = useState({})
-    const [open, setOpen] = useState(false)
+    const [task, setTasks] = useState({});
+    const [open, setOpen] = useState(false);
 
-    const onOpenModal = () => setOpen(true)
-    const onCloseModal = () => setOpen(false)
+    const onOpenModal = () => {
+        setOpen(true);
+        console.log(open);
+    };
+
+    const onCloseModal = () => {
+        setOpen(false);
+        console.log(open);
+    };
 
     useEffect(() => {
-        getTaskById()
-    })
+        getTaskById();
+    }, []);
 
-    console.log(props.match.params.id)
-    const id = props.match.params.id
+    console.log(props.match.params.id);
+    const id = props.match.params.id;
     const getTaskById = async () => {
-        const response = await Api.fetchGetById(id)
-        const data = await response.json()
+        const response = await Api.fetchGetById(id);
+        const data = await response.json();
 
-        setTasks(data)
-    }
+        setTasks(data);
+    };
 
     const handleDelete = async (evento) => {
-        evento.preventDefault()
-        const resposta = await Api.fetchDelete(id)
-        const result = await resposta
-        console.log(result)
-        props.history.push('/')
-    }
+        evento.preventDefault();
+        const resposta = await Api.fetchDelete(id);
+        const result = await resposta;
+        console.log(result);
+        props.history.push('/');
+    };
 
     return (
         <section>
@@ -54,26 +61,16 @@ const TaskView = (props) => {
                     Excluir
                 </button>
             </div>
-            <Modal
-                open={open}
-                onClose={onCloseModal}
-                center
-                classNames={{
-                    overlayAnimationIn: 'customEnterOverlayAnimation',
-                    overlayAnimationOut: 'customLeaveOverlayAnimation',
-                    modalAnimationIn: 'customEnterModalAnimation',
-                    modalAnimationOut: 'customLeaveModalAnimation',
-                }}
-            >
+            <Modal open={open} onClose={onCloseModal} center>
                 <h2>Deseja realmente Excluir ?</h2>
-                <button onClick={handleDelete} className="buttons">
+                <button onClick={handleDelete} className="submit-modal">
                     SIM
                 </button>
-                <button onClick={onCloseModal} className="buttons">
+                <button onClick={onCloseModal} className="submit-modal">
                     NAO
                 </button>
             </Modal>
         </section>
-    )
-}
-export default TaskView
+    );
+};
+export default TaskView;

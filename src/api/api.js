@@ -9,7 +9,7 @@ export const Api = {
                 'Content-type': 'application/json',
             }),
             body: JSON.stringify(body),
-        })
+        });
     },
     fetchPut: (body, id) => {
         return fetch(Api.url + '/update/' + id, {
@@ -18,11 +18,11 @@ export const Api = {
                 'Content-type': 'application/json',
             }),
             body: JSON.stringify(body),
-        })
+        });
     },
     fetchDelete: (id) => {
         return fetch(Api.url + '/delete/' + id, {
             method: 'DELETE',
-        })
+        });
     },
-}
+};

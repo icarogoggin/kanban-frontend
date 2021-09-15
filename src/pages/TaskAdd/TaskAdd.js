@@ -1,15 +1,15 @@
-import React from 'react'
-import { Api } from '../../api/api'
-
+import React from 'react';
+import { Api } from '../../api/api';
+import { Link } from 'react-router-dom';
 
 const TaskAdd = (props) => {
     const handleSubmit = async (evento) => {
-        evento.preventDefault()
-        const titulo = evento.target.titulo.value
-        const descricao = evento.target.descricao.value
-        const prioridade = evento.target.prioridade.value
-        const status = evento.target.status.value
-        const prazo = evento.target.prazo.value
+        evento.preventDefault();
+        const titulo = evento.target.titulo.value;
+        const descricao = evento.target.descricao.value;
+        const prioridade = evento.target.prioridade.value;
+        const status = evento.target.status.value;
+        const prazo = evento.target.prazo.value;
 
         const Task = {
             titulo: titulo,
@@ -17,19 +17,17 @@ const TaskAdd = (props) => {
             prioridade: prioridade,
             status: status,
             prazo: parseInt(prazo),
-        }
+        };
 
         try {
-            const response = await Api.fetchPost(Task)
-            const data = await response
-            alert("Cadastrado com sucesso!")
-            props.history.push('/')
+            const response = await Api.fetchPost(Task);
+            const data = await response;
+            alert('Cadastrado com sucesso!');
+            props.history.push('/');
         } catch (error) {
-            console.log('erro', error)
+            console.log('erro', error);
         }
-
-
-    }
+    };
 
     return (
         <section>
@@ -82,7 +80,7 @@ const TaskAdd = (props) => {
                 </div>
             </form>
         </section>
-    )
-}
+    );
+};
 
-export default TaskAdd
+export default TaskAdd;
